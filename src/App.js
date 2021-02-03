@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from "./components/Navbar/Navbar";
+import Mixtape from "./components/Mixtape/Mixtape";
 import './App.css';
 import computer from './Images/pixelcomputer.png';
 
@@ -16,8 +18,8 @@ function App() {
   )
   });
   return (
-    <div className="App bgimage">
-   
+    <div className="App">
+        <Navbar />
     <div>
       <h1 className="red-text orange-bg">Hi! My name is Yuri.</h1>
         <img src={computer}></img>
@@ -41,7 +43,7 @@ function App() {
 
     <div>
         <h2 className="red-text green-bg">Storytime:</h2>
-        <p className="red-text">One time my cat escaped my house and I spent over 2 hours trying to chase and catch him.<br></br>I had to crawl underneath cars, go into backyards, and basically make a fool of myself the entire time.<br></br>And after all that running around, he literally just walked back in the house.<br></br>...I got him back, but at what cost?</p>
+        <p className="red-text">One time my cat escaped my house and <br></br>I spent over 2 hours trying to chase and catch him.<br></br>I had to crawl underneath cars, go into backyards, <br></br>and basically make a fool of myself the entire time.<br></br>And after all that running around, he <br></br>literally just walked back in the house.<br></br>...I got him back, but at what cost?</p>
     </div>
 
     <div>
@@ -53,6 +55,10 @@ function App() {
     <div>
      <input type='text' onChange={onChangeFunction}/>
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <Mixtape />
     </div>
   );
   }

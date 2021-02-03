@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: smaller;
+  max-width: 200vh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: url(./Images/pixelcloud.png);
 }
 
 .App-link {
@@ -13,6 +19,7 @@
 
 .red-text{
   color: #883229;
+  padding: 1rem;
 }
 .orange-bg{
   background-color: #AE8C6C;
@@ -26,8 +33,5 @@
 .blue-bg{
   background-color: rgba(74, 100, 148, 0.815);
 }
-body{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  /* these are defaults but you can import fonts from google for free @fonts.google.com! */
-}
+
 
