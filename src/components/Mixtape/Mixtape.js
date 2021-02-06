@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Map } from 'immutable';
 import './Mixtape.css';
 import MixtapePosting from './MixtapePosting'
-import { render } from '@testing-library/react';
 
 class Mixtape extends Component {
     constructor(props) {
@@ -13,9 +12,17 @@ class Mixtape extends Component {
             newSongName: '',
             newSongArtist: '',
             newSongDescription: '',
-            newSongLink: ''
         };
     }
+
+    delete = (id, field) => {
+        this.setState({songs: this.state.songs.delete(id, field)})
+    }
+
+    save = (id, field) => {
+        this.setState({songs: this.state.songs.update(id, (n) => { return Object.assign({}, n, field)})})
+    }
+
     newSongNameFunction = (event) => {
         this.setState({ newSongName: event.target.value });
     }
@@ -25,16 +32,12 @@ class Mixtape extends Component {
     newSongDescriptionFunction = (event) => {
         this.setState({ newSongDescription: event.target.value });
     }
-    newSongLinkFunction = (event) => {
-        this.setState({ newSongLink: event.target.value });
-    }
 
     saveSongInfo = () => {
         let songData = {
             name: this.state.newSongName,
             artist: this.state.newSongArtist,
             description: this.state.newSongDescription,
-            link: this.state.newSongLink
         }
         this.setState({
             songs: this.state.songs.set(this.state.songID, songData),
@@ -45,15 +48,15 @@ class Mixtape extends Component {
     render() {
         const allSongs = this.state.songs.entrySeq().map(
             ([id, song]) => {
-                return (
+                return(
                     <MixtapePosting
+                    save={this.save}
+                    delete={this.delete}
                     name={song.name}
                     artist={song.artist}
                     description={song.description}
-                    link={song.link}
-                    key={id}
-                    />
-                )
+                    key={id}/>
+                 )
             }
         );
 
@@ -69,9 +72,6 @@ class Mixtape extends Component {
 
                 <p> Enter what you like about the song.</p>
                 <input type="text" value={this.state.newSongDescription} onChange={this.newSongDescriptionFunction} />
-
-                <p> Enter a link to your song. </p>
-                <input type="text" value={this.state.newSongLink} onChange={this.newSongLinkFunction} />
 
                 <button onClick={this.saveSongInfo}>Save!</button>
             </div>
