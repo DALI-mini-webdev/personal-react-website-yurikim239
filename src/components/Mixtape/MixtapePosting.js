@@ -37,9 +37,7 @@ class MixtapePosting extends Component {
         var newSongDescription = {
             description: this.state.newSongDescription
         }
-        this.props.save(this.props.id, newSongName);
-        this.props.save(this.props.id, newSongArtist);
-        this.props.save(this.props.id, newSongDescription);
+        this.props.save(this.props.id, newSongName, newSongArtist, newSongDescription);
 
         this.setState({editing: false});
     }

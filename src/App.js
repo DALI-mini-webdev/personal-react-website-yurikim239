@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import Mixtape from "./components/Mixtape/Mixtape";
+import Kitty from "./components/Kitty/Kitty";
 import './App.css';
 import computer from './Images/pixelcomputer.png';
 
@@ -55,6 +56,10 @@ function App() {
     <div>
      <input type='text' onChange={onChangeFunction}/>
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <Kitty />
     <br></br>
     <br></br>
     <br></br>
