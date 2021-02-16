@@ -1,4 +1,5 @@
 import React from 'react';
+import Firebase from './firestore/index';
 import Navbar from "./components/Navbar/Navbar";
 import Mixtape from "./components/Mixtape/Mixtape";
 import Kitty from "./components/Kitty/Kitty";
@@ -18,6 +19,10 @@ function App() {
     <p>An instrument I can sort of play is the {instruments}</p>
   )
   });
+
+  console.log(Firebase);
+  console.log(Firebase.db);
+
   return (
     <div className="App">
         <Navbar />
